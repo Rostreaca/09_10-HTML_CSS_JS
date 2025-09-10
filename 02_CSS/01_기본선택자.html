@@ -9,12 +9,30 @@
         /* color : Content 색상 변경 */
         /* 1. 전체 선택자 */
         * {
-           color : br /own;
+           color : brown;
         }
 
         /* 2. 태그 선택자 */
         pre {
           color : purple;
+        }
+
+        /* 3. 아이디 선택자 */
+        #pre-3,
+        #list-2 {
+            color:darkgreen;
+        }
+        /*
+        #list-2{
+            color:darkgreen;
+        }*/
+
+        /* 4. 클래스 선택자 */
+        .class-1{
+            color :tomato;
+        }
+        .class-2{
+            color :mediumslateblue; 
         }
 
      </style>
@@ -81,8 +99,51 @@
             스타일속성 : 스타일속성값;
             스타일속성 : 스타일속성값;
         }
+
+
+        => 이 문서 내에서 특정 HTML요소 딱 하나만을 선택할 때 사용
+        단, 해당요소에 반드시 id속성을 이용해서 이 문서내에 고유한
+        아이디값이 부여되어 있어야함
+        동일한 태그더라도 부분적으로 다르게 스타일을 부여하고 싶을 때 사용
     </pre>
 
+    <ol>
+        <li>아이디선택자</li>
+        <li id="list-2">아이디선택자</li>
+        <li>아이디선택자</li>
+        <li>아이디선택자</li>
+    </ol>
+
+    <hr>
+
+    <h3>4. 클래스 선택자(.클래스속성값)</h3>
+
+    <pre>
+        [ 표현법 ]
+        .클래스속성값{
+            스타일속성 : 값;
+            스타일속성 : 값;
+        }
+
+        => 현재 HTML문서에서 여러 개의 요소를 선택할 때 사용
+    </pre>
+    <!--
+        id, class : 모든 요소가 공통으로 사용할 수 있는 속성
+
+        id : 문서 내의 고유한 값으로 딱 하나만 작성(중복이 발생하면 안됨)
+
+        class : 별명을 지어주는 속성, 여러 개 작성가능, 중복값을 작성 가능
+    -->
+
+    <ul>
+        <li class="class-1">클래스선택자1</li>
+        <li class="class-2">클래스선택자2</li>
+        <li class="class-1">클래스선택자3</li>
+        <li class="class-2">클래스선택자4</li>
+        <li class="class-1">클래스선택자5</li>
+        <li class="class-2">클래스선택자6</li>
+        <li class="class-1 class-2">한 번에</li>
+    </ul>
 </body>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </html>
