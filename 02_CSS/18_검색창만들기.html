@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안녕 나는 검색창이야</title>
+
+    <style>
+        div, form{
+            border: 1px solid red;
+            box-sizing : border-box;
+        }
+        #header_2{
+            width: 650px;
+            height: 160px;
+            position: relative;
+        }
+
+        /* ------------요 밑에있는 것만 나중에 들고 갈 예정 ---------------------- */
+
+        #search-form{
+            width: 65%;
+            height: 40%;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left : 0px;
+            right : 0px;
+            margin : auto;
+        }
+
+        /* 검색창 form태그 내부 div속성 */
+        #search-form>div{
+            height : 100%;
+            float  : left;
+        }
+
+        #search-text{
+            width: 80%;
+        }
+        #search-btn{
+            width: 20%;
+        }
+
+        /* input요소들 크기 늘리기 */
+        #search-form input {
+            width: 100%;
+            height : 100%;
+            box-sizing: border-box;
+            border: 2px solid hotpink;
+            background-color: green;
+            border-radius: 42px;
+        }
+
+        #search-form input[type="text"]:focus{
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcIWGgroOI5KwdeCHIDeJE83Ej0ReWrq6_cQ&s");
+            background-size: cover;
+            outline: 4px ridge gold;
+        }
+
+        #search-form input[type="submit"]{
+            color: pink;
+            font-weight: 800;
+            font-size : 20px;
+            font-family: "궁서체";
+
+            &:hover{
+                cursor : pointer;
+                color : blueviolet;
+                background-color: wheat;
+            }
+            &:active{
+                color: red;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="header_2">
+
+        <form action="search.kh" method="get" id="search-form">
+            <div id="search-text">
+                <input type="text" name="query"/>
+            </div>
+            <div id="search-btn">
+                <input type="submit" value="검색"/>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
