@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>여섯가지방법</title>
+
+    <style>
+        .area {
+            width: 350px;
+            height: 150px;
+            border: 1px solid lavenderblush;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML요소 접근해봅시당</h1>
+
+    <h3>1) 아이디 속성값을 이용해서 접근하기</h3>
+
+    <div id="area1" class="area"></div>
+    <button onclick="selectById();">아이디로 접근하기</button>
+
+    <script>
+        function selectById() {
+
+            // 아이디 속성값을 이용해서 요소에 접근!
+            //console.log(document);
+            // document.getElementById('접근할 요소의 아이디 속성값');
+            // 요소객체라고 부른다.
+
+            const area1 = document.getElementById('area1');
+
+            console.log(area1);
+            console.dir(area1);
+
+            // property(속성) : value(값)
+            // 속성값 get / 속성값 set <- 선택한 요소의 속성가지고 해야할 일
+            // 속성에 접근하는 방법? ==> 선택된요소객체.속성명
+
+            console.log(area1.id);
+
+            area1.innerHTML = '아이디로 접근 성공! <br>';//set하기
+            console.log(area1.innerHTML);//get하기
+
+            // 선택된 div요소의 style속성을 변경
+            area1.style.backgroundColor = 'blueviolet';
+            area1.style.color = "skyblue";
+
+            area1.style = "color:green";
+
+            // 개발자도구로 확인 시 인라인방식으로 스타일이 부여된 것을 확인
+        }
+
+    </script>
+
+    <br><br><br>
+
+    <hr>
+
+    <div id="area3" class="area" style="background:yellowgreen"></div>
+    <button id="color-btn">다음 시간은 실습시간</button>
+    <!--
+        버튼을 클릭할 때마다
+        div요소 색상이 변경되도록
+        일곱빛깔 돌리기 ==> 자바했을 때 조건문을 떠올리기
+    -->
+
+    <script>
+        // let num = 0;
+        const btn = document.querySelector('#color-btn');
+
+        console.dir(btn);
+
+
+        btn.onclick = function () {
+
+            const area = document.querySelector('#area3');
+
+            console.log(area);
+
+            // if(num==0){
+            //     area.style.backgroundColor = "red";
+            //     num++;
+            // }
+            // else if(num==1){
+            //     area.style.backgroundColor = "orange";
+            //     num++;
+            // }
+            // else if(num==2){
+            //     area.style.backgroundColor = "yellowgreen";
+            //     num++;
+            // }
+            // else if(num==3){
+            //     area.style.backgroundColor = "green";
+            //     num++;
+            // }
+            // else if(num==4){
+            //     area.style.backgroundColor = "blue";
+            //     num++;
+            // }
+            // else if(num==5){
+            //     area.style.backgroundColor = "navy";
+            //     num++;
+            // }
+            // else if(num==6){
+            //     area.style.backgroundColor = "purple";
+            //     num = 0;
+            // }
+
+            if (area.style.backgroundColor == "purple" ||
+                area.style.backgroundColor == "yellowgreen") {
+                area.style.backgroundColor = "red";
+            } else if (area.style.backgroundColor == "red") {
+                area.style.backgroundColor = "orange";
+            } else if (area.style.backgroundColor == "orange") {
+                area.style.backgroundColor = "yellow";
+            } else if (area.style.backgroundColor == "yellow") {
+                area.style.backgroundColor = "green";
+            } else if (area.style.backgroundColor == "green") {
+                area.style.backgroundColor = "blue";
+            } else if (
+                area.style.backgroundColor == "blue") {
+                area.style.backgroundColor = "navy";
+            } else {
+                area.style.backgroundColor = "purple";
+            }
+
+
+        }
+
+    </script>
+
+    <hr>
+
+    <h3> 2) 태그명으로 접근하는 방법</h3>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <button onclick="tag();">태그명으로 접근하기</button>
+
+    <script>
+        function tag(){
+
+            // document.getElementsByTagName('태그명');
+
+            const array = document.getElementsByTagName('li');
+
+            console.log(array);
+            console.log(array.length);
+            // 선택된 여러 개의 요소객체들이 배열 형태로 담겨서 반환
+            // 자바스크립트에서의 배열은 [] 로 표현
+
+            array[0].style.backgroundColor = "rgb(60,180,120)";
+        }
+    </script>
+
+</body>
+
+</html>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>입출력하잣</title>
 
     <style>
-        .area{
+        .area {
             width: 500px;
             height: 200px;
-            border : 1px solid;
+            border: 1px solid;
         }
     </style>
 
 </head>
+
 <body>
     <!-- 
         자바스크립트를 써보자 
@@ -32,11 +34,11 @@
     <script>
         const bodyEl = document.querySelector('body');
 
-        function darkMode(){
+        function darkMode() {
             bodyEl.style.background = 'black';
             bodyEl.style.color = 'white';
         };
-        function lightMode(){
+        function lightMode() {
             bodyEl.style.background = 'white';
             bodyEl.style.color = 'black';
         }
@@ -74,7 +76,7 @@
 
     <script>
 
-        function documentWrite(){
+        function documentWrite() {
 
             // alert('요정도?');
             // console.log("로그로그");
@@ -83,11 +85,11 @@
             // document.write("<strong>강하게!!</strong>쓸 수 도 있음");
 
             const table = '<table border="1">'
-                        + '<tr>'
-                        + '<td>하하</td>'
-                        + '<td>이 데이터가 DB에서 조회해온 값이라면?</td>'
-                        + '</tr>'
-                        + '</table>';
+                + '<tr>'
+                + '<td>하하</td>'
+                + '<td>이 데이터가 DB에서 조회해온 값이라면?</td>'
+                + '</tr>'
+                + '</table>';
 
             //  화면에 출력할 문자열에 HTML태그가 존재할 경우
             // 동적인 요소로 만들어줌
@@ -123,10 +125,10 @@
         // console.log(btnEl);
 
         // 2. 선택된 버튼 요소의 이벤트 속성에 함수 대입
-        btnEl.onclick = function(){
+        btnEl.onclick = function () {
 
             alert('버튼 클릭함');
-            
+
             // 1. div요소에 접근
             const divEl = document.getElementById('area1');
 
@@ -137,11 +139,174 @@
             // 선택한 요소의 속성값을 get하고 싶다.
             // . 를 찍고 접근할 수 있음
 
-            console.log('div요소의 id값 : ' + divEl.id );
+            console.log('div요소의 id값 : ' + divEl.id);
             console.log('div요소의 클래스값 : ' + divEl.className);
+
+            console.log('--------------------------------------');
+
+            console.log(divEl.innerHTML); // 태그 포함
+            console.log(divEl.innerText); // 태그 미포함
+
+            // 요소가 가지고있는 content값을 get하는 방법
+            divEl.innerHTML = '<b>innerHTML 속성 값 변경! </b>';
+            divEl.style.color = "orangered";
+
+            // 요소가 가지고 있는 property에 값을 set하는 방법
+
         };
 
     </script>
+
+    <hr>
+
+    <h2>데이터를 입력받는 방법(변수에 대입해서 사용)</h2>
+    <!-- System.out.print('아이디를 입력해주세요 > ') -->
+
+    <p>
+        1) 변수 = window.confirm('질문내용'); <br>
+        2) 변수 = window.prompt('질문내용'); <br>
+        3) 변수 = 요소객체.속성(id, className, innerHTML, innerText); <br>
+        4) 변수 = 선택한input요소객체.value;
+    </p>
+
+    <h3> 1) window.confirm('질문내용') </h3>
+
+    <p>
+        confirm() 호출 시 '질문 내용'과 '확인/취소' 버튼이 존재하는 알림창이 뜸 <br>
+        확인 버튼 시 true값, 취소 버튼 클릭 시 false값 반환
+    </p>
+
+    <button id="btn2">클릭</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+
+        const btn2 = document.querySelector('#btn2');
+
+        btn2.onclick = function () {
+            const value = confirm('졸리면 확인, 아니면 취소를 눌러보세요~');
+
+            // console.log(value); // 확인과 취소 값 확인
+
+            const divEl = document.getElementById('area2');
+
+            // 1번 변수명을 쓴다.
+            // 2번 .을 찍는다.
+            // 3번 속성명을 쓴다.
+            // 4번 =를 쓴다
+            // 5번 대입할 값을 쓴다.
+            // divEl.innerText = '<b>문구테스트</b>';
+            // div요소객체의 innerText속성에 접근해서 속성값 변경
+
+            if (value) {
+                divEl.innerHTML = '<div style="color:red">정신차렷!!</div>';
+            } else {
+                divEl.innerHTML = '<div>안졸린데용?</div>';
+            }
+        };
+    </script>
+
+    <hr>
+
+    <p>수량</p>
+
+    <button id="minus">-</button> <span id="num">0</span> <button id="plus">+</button>
+
+    <script>
+        document.querySelector('#minus').onclick = function(){
+            const spanEl = document.querySelector('#num');
+            
+            //console.log(spanEl.innerText - 1);
+
+            spanEl.innerText = spanEl.innerText - 1;
+        };
+
+        document.querySelector('#plus').onclick = function(){
+            const spanEl = document.querySelector("#num");
+            // console.dir(spanEl);
+            // console.log(Number(spanEl.innerText) + 1);
+            spanEl.innerText = Number(spanEl.innerText) + 1;
+        };
+
+    </script>
+
+    <hr>
+
+    <h3> window.prompt('질문내용')</h3>
+
+    <p>
+        prompt() 호출 시 '질문 내용'과
+        사용자가 값을 입력할 수 있는 '텍스트 상자'와
+        '확인/취소'버튼이 보여지는 알림창 발생! <br>
+
+        - 확인 버튼 클릭 시 텍스트 상자에 입력한 값을 반환 <br>
+        - 취소 버튼 클릭 시 null값을 반환
+    </p>
+
+    <button onclick ="promptTest();">단순한 버튼</button>
+
+    <script>
+        function promptTest(){
+
+            const answer = prompt('자바스크립트 재밌죠?');
+
+            console.log(answer);
+
+
+        }
+    </script>
+
+    <ul id="numbers"></ul>
+
+    <button id="btn3">나를 눌러랏</button>
+
+    <script>
+        document.getElementById('btn3').onclick = function(){
+
+            const num = prompt('숫자를 입력해주세요~');
+
+            //console.log(num);
+
+            const ulEl = document.getElementById("numbers");
+
+            // ulEl.innerHTML = "<li>자식</li>";
+
+            // 자바였다면?
+            /*
+            for(int i=0;i<num;i++){
+                ulEl.innerHTML += '<li>자식</li>';
+            }
+            */
+
+            for(let i = 0; i < num; i++){
+                ulEl.innerHTML += "<li>자식</li>";
+            }
+
+        };
+    </script>
+    
+    <hr>
+    
+    <h3>4) 선택한 input요소객체.value; ☆★☆★☆★☆★☆★</h3>
+
+    <input type="text" id ="input-text"> <br>
+
+    <button id="click">클릭</button>
+
+    <script>
+        // 버튼을 클릭했을 때
+        // alert창이 뜨게 만드시오
+        document.querySelector('#click').onclick = function(){
+            // alert('hi');
+            const inputEl = document.querySelector('#input-text');
+            // console.dir(inputEl);
+            console.log(inputEl.value);
+        }
+
+
+    </script>
+
+
 
 </body>
 </html>
