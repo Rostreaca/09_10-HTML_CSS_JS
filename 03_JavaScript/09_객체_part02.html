@@ -44,6 +44,49 @@
             font-size: 14px;
             font-weight: 500;
         }
+
+        #bnbWrap{
+            width : 1200px;
+            height : 800px;
+            margin : auto;
+            box-shadow: 1px 1px 1px lightgray;
+        }
+
+        .hotel_card {
+            width: 320px;
+            height : 440px;
+            padding-bottom: 11px;
+            margin-right: 8px;
+            display: inline-block;
+
+            &:hover{
+                border: 2px dashed wheat;
+            }
+        }
+
+        .hotel_card > img {
+            width: 320px;
+            height: 320px;
+        }
+
+
+        .hotel_card > p {
+            font-size :14px;
+            font-weight: 500;
+        }
+
+        #nameInfo > *{
+            display: inline-block;
+        }
+
+        #nameInfo > h4 {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        #score{
+            float: right;
+        }
             
     </style>
 
@@ -55,7 +98,7 @@
     <h3>* 객체배열 써보기</h3>
 
     <!--느낌만 보기-->
-    <div id="wrap"></div>
+    <!-- <div id="wrap"></div>
     
     <script>
         window.onload = function(){
@@ -121,42 +164,58 @@
             }
 
             document.getElementById('wrap').innerHTML = element;
-        }
+        } -->
 
     </script>
 
-    <div id="bnbScrap"></div>
+    <div id="bnbWrap"></div>
 
     <script>
         window.onload = function(){
 
-            const airbnb = [
+            const hotels = [
                 {
                     image : "https://a0.muscache.com/im/pictures/hosting/Hosting-1157133225923295926/original/1664a4f5-dde0-404b-abb8-75b15946d44c.jpeg?im_w=720" ,
                     name : "부산의 아파트",
                     userScore : "4.95 (82)",
-                    introduction : ,
+                    introduction : "yezas 광안 c-8 #통유리고층뷰#광안대교정면",
                     restDate : "4월 17일~19일",
-                    priceWithDay : "₩251,059 · 2박",
+                    priceWithDay : "<U><strong>₩251,059</strong></U> · 2박",
                 },
                 {
                     image : "https://a0.muscache.com/im/pictures/hosting/Hosting-1254611685750285523/original/5a7cbab5-d254-4068-81f2-7aeec2554cf9.jpeg?im_w=720",
                     name : "동래구의 아파트",
                     userScore : "4.86 (66)",
-                    introduction : ,
+                    introduction : "해온 숙박",
                     restDate : "11월 28일~30일",
-                    priceWithDay : "₩80,453 · 2박",
+                    priceWithDay : "<U><strong>₩80,453</strong></U> · 2박",
                 },
                 {
                     image : "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTU5MTE2NjUyNjY5NTc0NzQ5/original/05ea7367-616a-41b7-af70-be5d5da73669.jpeg?im_w=720",
                     name : "부산의 호텔",
-                    userScore : "4.92(109)",
-                    introduction : ,
+                    userScore : "4.92 (109)",
+                    introduction : "아라 게스트하우스 301호",
                     restDate : "10월 31일 ~ 11월 2일",
-                    priceWithDay : ,
+                    priceWithDay : "<U><strong>₩72,929</strong></U> · 2박",
                 },
 
             ];
+
+            let hotel_element = "";
+            for(let hotel of hotels){
+                hotel_element += `<div class="hotel_card">
+                                     <img src = "${hotel.image}" />
+                                     <div id="nameInfo">
+                                     <h4>${hotel.name}</h4>
+                                     <h4 id="score">★ ${hotel.userScore}</h4>
+                                     </div>
+                                     <p>${hotel.introduction}</p>
+                                     <p>${hotel.restDate}</p><br>
+                                     <p>${hotel.priceWithDay}</p>
+                                  </div>`;
+            }
+
+            document.getElementById('bnbWrap').innerHTML = hotel_element;
         }
     </script>
 </body>
