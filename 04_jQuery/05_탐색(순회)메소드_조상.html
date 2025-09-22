@@ -47,7 +47,22 @@
 
             $("span").parent().css("border","2px solid palegreen");
 
+            /*
+                $("선택자").parents();
+                선택된 요소를 기준으로 모든 상위요소 선택
+            */
+           $("span").parents().css("color","blue");
 
+           $("span").parents("div").css("color", "forestgreen");
+
+           /*
+                $("선택자").parentUntil('선택자')
+                선택된 요소를 기준으로 선택된 요소부터 인자까지의 요소를 선택
+           */
+
+           $('span').parentsUntil('div').css("border","1px solid red");
+
+           $('span').parent().parent().css('color','hotpink');
         });
     </script>
 
